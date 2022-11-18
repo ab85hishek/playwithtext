@@ -47,7 +47,9 @@ function TextField() {
             </div>
             <div className="container">
                 <h3>Summary of your input: </h3>
-                <li>Word count : {text.split(" ").length}</li>
+                <li>Word count : {
+                    (text.length ==0)? 0 :
+                    text.split(" ").length}</li>
                 <li>Character count : {text.length}</li>
                 <h3 className="my-3">Preview</h3>
                 <p align="justify">{text}</p>
