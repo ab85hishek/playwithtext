@@ -11,14 +11,18 @@ function TextField(props) {
     function clickUCHandler() {
         let res = text;
         setText(res.toUpperCase());
+        props.showAlert("Converted to uppercase","Succcess!")
     }
     function clickLCHandler() {
         let res = text;
         setText(res.toLowerCase());
+        props.showAlert("Converted to lowercase","Succcess!")
     }
 
     function clickClearHandler() {
         setText("");
+        props.showAlert("Cleared text","Succcess!")
+
     }
 
     function clickCopyHandler(){
@@ -29,12 +33,16 @@ function TextField(props) {
             console.error('Failed to copy');
             
           });
+        props.showAlert("Copied to clipboard","Succcess!")
+
     }
 
     function clickESHandler(){
         let res = text.replace(/\s+/g," ").trim();
         setText(res);
         // console.log("removed");
+        props.showAlert("Extra space cleared","Succcess!")
+
     }
 
     return (
