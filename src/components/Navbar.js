@@ -4,19 +4,6 @@ import { Link } from "react-router-dom";
 
 function Navbar(props) {
 
-  function btn1(){
-    props.showTheme("#ff2121");
-  }
-  function btn2(){
-    props.showTheme("#1A2F4C");
-  }
-  function btn3(){
-    props.showTheme("#1b1a4c");
-  }
-  function btn4(){
-    props.showTheme("#F9F7F7");
-  }
-
 
   return (
     <>
@@ -51,23 +38,7 @@ function Navbar(props) {
                 </Link>
               </li>
             </ul>
-
-            {/* button for theme */}
-            <div>
-            <button style={{borderRadius: "20px",
-            height: "40px",
-            backgroundColor: "#ff2121"}} onClick={btn1}></button>
-            <button className="mx-3" style={{borderRadius: "20px",
-            height: "40px",
-            backgroundColor: "#1A2F4C"}} onClick={btn2}></button>
-            <button style={{borderRadius: "20px",
-            height: "40px",
-            backgroundColor: "#1b1a4c"}} onClick={btn3}></button>
-            <button className="mx-3" style={{borderRadius: "20px",
-            height: "40px",
-            backgroundColor: "#F9F7F7"}} onClick={btn4}></button>
-           
-            </div>
+            
             {/* button for dark mode */}
             <div
               className={`form-check form-switch text-${
@@ -77,7 +48,7 @@ function Navbar(props) {
               <input
                 className="form-check-input"
                 type="checkbox"
-                role="switch"
+                // role="switch"
                 id="flexSwitchCheckDefault"
                 onClick={props.toggleMode}
               />

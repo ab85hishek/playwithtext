@@ -79,12 +79,12 @@ function TextField(props) {
             <div className="container" style={{color: (props.mode==='light')?'black':'white'}}>
                 <h3>Summary of your input: </h3>
                 <li>Word count : {
-                    text.split(" ").filter((element => {
+                    text.split(/\s+/).filter((element => {
                         return (element !=="");
                     })).length}</li>
                 <li>Character count : {text.length}</li>
                 <li>Estimated time to read : {(0.008 * 
-                    text.split(" ").filter((element => {
+                    text.split(/\s+/).filter((element => {
                         return (element !=="");
                     })).length).toFixed(2)} min</li>
                 <h3 className="my-3">Preview</h3>
