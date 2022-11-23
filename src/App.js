@@ -6,7 +6,6 @@ import TextField from "./components/TextField";
 import About from "./components/About";
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
   Routes,
 } from "react-router-dom";
@@ -56,7 +55,7 @@ function App() {
         <div className="container">
           <Routes>
           <Route path="/" element={<TextField mode={mode} showAlert={showAlert} />}></Route>
-          <Route path="about" element={<About />} />
+          <Route path="about" element={<About mode={mode} />} />
           </Routes>
         </div>
       </Router>

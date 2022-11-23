@@ -58,19 +58,19 @@ function TextField(props) {
                     style={{backgroundColor: (props.mode==='light')?'white':'#3c316d',
                     color: (props.mode==='light')?'black':'white'}}
                 ></textarea>
-                <button className="btn btn-primary my-3" onClick={clickUCHandler}>
+                <button disabled={text.length === 0} className="btn btn-primary my-3" onClick={clickUCHandler}>
                     Convert to Upper Case
                 </button>
-                <button className="btn btn-primary my-3 mx-3" onClick={clickLCHandler}>
+                <button disabled={text.length === 0} className="btn btn-primary my-3 mx-3" onClick={clickLCHandler}>
                     Convert to Lower Case
                 </button>
-                <button className="btn btn-primary my-3" onClick={clickCopyHandler}>
+                <button disabled={text.length === 0} className="btn btn-primary my-3" onClick={clickCopyHandler}>
                     Copy to clipboard
                 </button>
-                <button className="btn btn-primary my-3 mx-3" onClick={clickESHandler}>
+                <button disabled={text.length === 0} className="btn btn-primary my-3 mx-3" onClick={clickESHandler}>
                     Remove extra spaces
                 </button>
-                <button
+                <button disabled={text.length === 0}
                     className="btn btn-primary my-3 "
                     onClick={clickClearHandler}
                 > Clear
@@ -79,11 +79,16 @@ function TextField(props) {
             <div className="container" style={{color: (props.mode==='light')?'black':'white'}}>
                 <h3>Summary of your input: </h3>
                 <li>Word count : {
-                    (text.length ===0)? 0 :
-                    text.split(" ").length}</li>
+                    text.split(" ").filter((element => {
+                        return (element !=="");
+                    })).length}</li>
                 <li>Character count : {text.length}</li>
+                <li>Estimated time to read : {(0.008 * 
+                    text.split(" ").filter((element => {
+                        return (element !=="");
+                    })).length).toFixed(2)} min</li>
                 <h3 className="my-3">Preview</h3>
-                <p align="justify">{(text.length)? text : "Enter text in above box to preview....."}</p>
+                <p align="justify">{(text.length)? text : "Nothing to preview!"}</p>
             </div>
         </>
     );
